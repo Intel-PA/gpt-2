@@ -10,7 +10,7 @@ conda activate base
 pip install tensorflow fire
 pip install python-telegram-bot --upgrade
 
-cd /home/rehman/work/gpt-2
+cd /home/rehman/work/gpt-2/src
 
 # start the chatbot
 python bot.py
