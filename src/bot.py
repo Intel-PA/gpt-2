@@ -16,7 +16,6 @@ bot.
 pip install python-telegram-bot --upgrade
 """
 
-
 #telegram init
 import logging
 
