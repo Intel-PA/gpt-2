@@ -5,3 +5,7 @@ checkpoint
 samples
 dist-newstyle
 bin
+**/xdata/
+**/dialogs.txt
+**/bot.log
+**/nohup.out
