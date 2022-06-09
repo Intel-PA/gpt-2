@@ -32,7 +32,7 @@ pip install python-telegram-bot --upgrade
 
 cd /home/rehman/work/gpt-2/src
 
-# start the chatbot
+# start the finetune training
 python train.py --dataset xdata/dialogs.txt --run_name myModel
 
 # Let it run for hours, press Ctrl+C to stop
