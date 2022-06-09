@@ -28,8 +28,8 @@ if tf.VERSION >= '2':
 import model, sample, encoder
 from load_dataset import load_dataset, Sampler
 
-CHECKPOINT_DIR = 'checkpoint'
-SAMPLE_DIR = 'samples'
+CHECKPOINT_DIR = '../checkpoint'
+SAMPLE_DIR = '../samples'
 
 
 parser = argparse.ArgumentParser(
@@ -221,7 +221,7 @@ def main():
                              'model-{}').format(counter))
             saver.save(
                 sess,
-                os.path.join(CHECKPOINT_DIR, args.run_name, '../model'),
+                os.path.join(CHECKPOINT_DIR, args.run_name, 'model'),
                 global_step=counter)
             with open(counter_path, 'w') as fp:
                 fp.write(str(counter) + '\n')

@@ -1,6 +1,6 @@
 import gpt2forbot
 
-current_model = "run1" #biggest = 1558M, smallest = 117M
+current_model = "myModel" #biggest = 1558M, smallest = 117M
 gpt2 = gpt2forbot.GPT2(model_name=current_model)
 
 

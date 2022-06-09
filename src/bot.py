@@ -24,7 +24,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 
 import gpt2forbot
 
-current_model = "run1dialogs"
+current_model = "1558M"
 gpt2 = gpt2forbot.GPT2(model_name=current_model)
 
 
@@ -136,7 +136,11 @@ def echo(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("5402665772:AAEFa6yZ03Mef-5XsA2-qQSthPwsU7_fZ8E")
+    with open('xdata/telegram.tok') as f:
+        lines = f.read()
+        tok_line = lines.split('\n', 1)[0]
+    
+    updater = Updater(tok_line)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher

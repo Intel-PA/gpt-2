@@ -1,3 +1,55 @@
+## Run on IntelPA-1
+
+```sh
+
+docker run -it --gpus all --volume=/home:/home cudaconda:ssh /bin/bash
+
+# inside docker container
+conda activate base
+
+pip install tensorflow fire
+pip install python-telegram-bot --upgrade
+
+cd /home/rehman/work/gpt-2
+
+# start the chatbot
+python bot.py
+
+
+```
+
+## Finetune on IntelPA-1
+
+```sh
+
+docker run -it --gpus all --volume=/home:/home cudaconda:ssh /bin/bash
+
+# inside docker container
+conda activate base
+
+pip install tensorflow fire
+pip install python-telegram-bot --upgrade
+
+cd /home/rehman/work/gpt-2/src
+
+# start the chatbot
+python train.py --dataset xdata/dialogs.txt --run_name myModel
+
+# Let it run for hours, press Ctrl+C to stop
+
+# Copy the checkpoint model to the 'model' directory
+cp -r /home/rehman/work/gpt-2/checkpoint/myModel /home/rehman/work/gpt-2/models/myModel
+cp /home/rehman/work/gpt-2/models/117M/encoder.json /home/rehman/work/gpt-2/models/myModel/encoder.json
+cp /home/rehman/work/gpt-2/models/117M/hparams.json /home/rehman/work/gpt-2/models/myModel/hparams.json
+cp /home/rehman/work/gpt-2/models/117M/vocab.bpe /home/rehman/work/gpt-2/models/myModel/vocab.bpe
+
+# Change the model name in bot.py to myModel
+
+# Change the model name in medical.py to myModel
+```
+
+
+
 ## Fine tuning on custom datasets
 
 Reference:  ["Beginner’s Guide to Retrain GPT-2 (117M) to Generate Custom Text Content"](https://medium.com/@ngwaifoong92/beginners-guide-to-retrain-gpt-2-117m-to-generate-custom-text-content-8bb5363d8b7f)
